@@ -1,0 +1,69 @@
+{
+    "name": "goto-documentation",
+    "displayName": "vscode-goto-documentation",
+    "description": "VS Code extension to go to documentation",
+    "version": "0.0.1",
+    "publisher": "cxfksword",
+    "engines": {
+        "vscode": "^1.10.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onCommand:extension.gotoDocument"
+    ],
+    "main": "./out/src/extension",
+    "contributes": {
+        "commands": [
+            {
+                "command": "extension.gotoDocument",
+                "title": "Go to Document"
+            }
+        ],
+        "configuration": {
+            "type": "object",
+            "title": "Go to Document configuration",
+            "properties": {
+                "goto-documentation.customDocs": {
+                    "type": "object",
+                    "default": {},
+                    "description": "Extend docs url for not default support languages. ex. {'dd':'http://dd.com/?search=${query}'}"
+                }
+            }
+        },
+        "keybindings": [
+            {
+                    "command": "extension.gotoDocument",
+                    "key": "ctrl+shift+h",
+                    "mac": "cmd+shift+h",
+                    "when": "editorTextFocus"
+            }
+        ],
+        "menus": {
+            "editor/context": [
+                {
+                    "command": "extension.gotoDocument",
+                    "group": "navigation@1"
+                }
+            ]
+        }
+    },
+    "scripts": {
+        "vscode:prepublish": "tsc -p ./",
+        "compile": "tsc -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "typescript": "^2.0.3",
+        "vscode": "^1.0.0",
+        "mocha": "^2.3.3",
+        "@types/node": "^6.0.40",
+        "@types/mocha": "^2.2.32"
+    },
+    "dependencies": {
+        "mac-open": "^0.1.3",
+        "open": "0.0.5"
+    }
+}
