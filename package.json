@@ -10,6 +10,15 @@
     "categories": [
         "Other"
     ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/cxfksword/vscode-goto-documentation"
+    },
+    "bugs": {
+        "url": "https://github.com/cxfksword/vscode-goto-documentation/issues"
+    },
+    "license": "Apache License 2.0",
+    "icon": "doc/img/icon.png",
     "activationEvents": [
         "onCommand:extension.gotoDocument"
     ],
@@ -28,7 +37,7 @@
                 "goto-documentation.customDocs": {
                     "type": "object",
                     "default": {},
-                    "description": "Extend docs url for not default support languages. ex. {'dd':'http://dd.com/?search=${query}'}"
+                    "description": "Extend docs url for not support languages. ex. {'file.ext':'http://ext.com/?search=${query}'}"
                 }
             }
         },
