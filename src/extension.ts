@@ -26,9 +26,12 @@ export function activate(context: vscode.ExtensionContext) {
             keyword = editor.document.getText(editor.selection.with());
         }
 
+        let extIndex: number = editor.document.fileName.lastIndexOf('.');
+        let ext: string = extIndex >= 0 ? editor.document.fileName.substring(extIndex + 1) : '';
         let config = vscode.workspace.getConfiguration('goto-documentation');
         let customDocs = config.get<object>("customDocs");
-        Document.open(editor.document.languageId, keyword, customDocs);
+        
+        Document.open(ext, keyword, customDocs);
     });
 
     context.subscriptions.push(disposable);
